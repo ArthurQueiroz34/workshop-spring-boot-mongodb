@@ -2,6 +2,7 @@ package com.excalibur.workshopmongo.config;
 
 import com.excalibur.workshopmongo.domain.Post;
 import com.excalibur.workshopmongo.domain.User;
+import com.excalibur.workshopmongo.dto.AuthorDTO;
 import com.excalibur.workshopmongo.repository.PostRepository;
 import com.excalibur.workshopmongo.repository.UserRepository;
 
@@ -35,8 +36,8 @@ public class Instantiation implements CommandLineRunner {
         User sylnas = new User(null, "Sylnas Storm", "sylnas@gmail.com");
         User yacina = new User(null, "Yacina Crest", "yacina@gmail.com");
 
-        Post post1 = new Post(null, sdf.parse("21/03/2018"), "Wise reminder", "Let the fire of your heart burn bright!", alexia);
-        Post post2 = new Post(null, sdf.parse("23/03/2018"), "Never forget!", "Life itself is with you.", alexia);
+        Post post1 = new Post(null, sdf.parse("21/03/2018"), "Wise reminder", "Let the fire of your heart burn bright!", new AuthorDTO(alexia));
+        Post post2 = new Post(null, sdf.parse("23/03/2018"), "Never forget!", "Life itself is with you.", new AuthorDTO(alexia));
 
         userRepository.saveAll(Arrays.asList(alexia, sylnas, yacina));
         postRepository.saveAll(Arrays.asList(post1, post2));
